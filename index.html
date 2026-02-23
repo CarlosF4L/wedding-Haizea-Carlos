@@ -492,6 +492,20 @@
     .hero-names { font-size: 44px; }
     .countdown { gap: 16px; }
   }
+  /* Google Form embebido */
+.form-iframe-container {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(61, 58, 53, 0.08);
+}
+
+.form-iframe-container iframe {
+  display: block;
+  border: none;
+}
 </style>
 </head>
 <body>
@@ -597,52 +611,19 @@
 
   <div class="rsvp-card">
     <h2 class="rsvp-title">¿Nos confirmas?</h2>
+<div class="form-iframe-container">
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd-mYJkQJmyuW29P4Ror7XA-MF0IRGRDA2D1nEjcGC0F9Pe-A/viewform?embedded=true" 
+          width="100%" 
+          height="1500" 
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0">
+    Cargando…
+  </iframe>
+</div>
 
-    <form id="rsvpForm">
-      <div class="form-group">
-        <label for="attendance">¿Te apuntas?</label>
-        <select id="attendance" class="form-select" required>
-          <option value="" disabled selected>¿TE APUNTAS?</option>
-          <option value="si">¡Sí, allí estaré!</option>
-          <option value="no">No podré asistir</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="name">Nombre</label>
-        <input type="text" id="name" class="form-input" placeholder="NOMBRE Y APELLIDOS" required>
-      </div>
-
-      <div class="form-group">
-        <label for="companion">Acompañante</label>
-        <input type="text" id="companion" class="form-input" placeholder="NOMBRE Y APELLIDOS ACOMPAÑANTE">
-      </div>
-
-      <div class="form-group">
-        <label for="bus">¿Irás en autobús?</label>
-        <select id="bus" class="form-select">
-          <option value="" disabled selected>¿IRÁS EN AUTOBÚS?</option>
-          <option value="si_ida_vuelta">Sí, ida y vuelta</option>
-          <option value="si_ida">Solo ida</option>
-          <option value="si_vuelta">Solo vuelta</option>
-          <option value="no">No, iré por mi cuenta</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="allergies">Alergias</label>
-        <textarea id="allergies" class="form-textarea" placeholder="Intolerancias y alergias alimentarias" rows="3"></textarea>
-      </div>
-
-      <button type="submit" class="btn-submit">Enviar</button>
-
-      <p class="rsvp-deadline">*Confirmar antes de junio 2026</p>
-    </form>
-
-    <div class="form-success" id="formSuccess">
-      <h3>¡Gracias! 🎉</h3>
-      <p>Hemos recibido tu confirmación.<br>¡Nos vemos el 10 de octubre!</p>
-    </div>
+<p class="rsvp-deadline">*Confirmar antes de junio 2026</p>
+    
 
     <!-- Flower vase illustration -->
     <div class="rsvp-flower">
@@ -724,23 +705,7 @@
   });
 
   // Form
-  document.getElementById('rsvpForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = {
-      attendance: document.getElementById('attendance').value,
-      name: document.getElementById('name').value,
-      companion: document.getElementById('companion').value,
-      bus: document.getElementById('bus').value,
-      allergies: document.getElementById('allergies').value,
-      timestamp: new Date().toISOString()
-    };
-    const responses = JSON.parse(localStorage.getItem('weddingRSVP') || '[]');
-    responses.push(formData);
-    localStorage.setItem('weddingRSVP', JSON.stringify(responses));
-    this.style.display = 'none';
-    document.getElementById('formSuccess').classList.add('show');
-    console.log('RSVP submitted:', formData);
-  });
+
 
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -754,4 +719,5 @@
 </body>
 
 </html>
+
 
