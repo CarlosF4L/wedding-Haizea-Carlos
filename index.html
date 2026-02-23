@@ -206,7 +206,27 @@
     color: var(--ink-light);
     margin-top: 4px;
   }
+  /* ===== INVITACIÓN ===== */
+.invitation-section {
+  background: var(--cream);
+  padding-top: 80px;
+  padding-bottom: 120px;
+}
 
+.invitation-svg-wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.invitation-svg-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(61, 58, 53, 0.1);
+}
   /* ===== TIMELINE ===== */
   .timeline-section {
     background: var(--warm-white);
@@ -513,6 +533,7 @@
 <!-- ===== FLOATING NAV ===== -->
 <nav class="nav">
   <a href="#inicio" class="active">Inicio</a>
+  <a href="#invitacion">Invitación</a>
   <a href="#timeline">Timeline</a>
   <a href="#lugar">Lugar</a>
   <a href="#confirmar">RSVP</a>
@@ -556,6 +577,16 @@
         <div class="countdown-label">Seg</div>
       </div>
     </div>
+  </div>
+</section>
+<!-- ===== INVITACIÓN ===== -->
+<section class="invitation-section" id="invitacion">
+  <h2 class="section-title">Invitación</h2>
+  
+  <div class="invitation-svg-wrapper" aria-label="Invitación de boda">
+    <img src="Invitacion.svg" 
+         alt="Invitación de boda Carlos y Haizea" 
+         loading="lazy">
   </div>
 </section>
 
@@ -612,13 +643,15 @@
   <div class="rsvp-card">
     <h2 class="rsvp-title">¿Nos confirmas?</h2>
 <div class="form-iframe-container">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd-mYJkQJmyuW29P4Ror7XA-MF0IRGRDA2D1nEjcGC0F9Pe-A/viewform?embedded=true" 
-          width="100%" 
-          height="1500" 
-          frameborder="0" 
-          marginheight="0" 
-          marginwidth="0">
-    Cargando…
+  <iframe 
+    data-tally-src="https://tally.so/embed/XxDAxe?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+    loading="lazy" 
+    width="100%" 
+    height="800" 
+    frameborder="0" 
+    marginheight="0" 
+    marginwidth="0" 
+    title="Confirmación Boda Carlos y Haizea">
   </iframe>
 </div>
 
@@ -706,7 +739,6 @@
 
   // Form
 
-
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -716,8 +748,13 @@
   });
 </script>
 
-</body>
+<!-- Tally embed script -->
+<script>
+  var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+</script>
 
+</body>
 </html>
+
 
 
